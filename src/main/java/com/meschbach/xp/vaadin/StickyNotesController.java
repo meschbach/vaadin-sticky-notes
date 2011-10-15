@@ -10,9 +10,11 @@ import com.meschbach.xp.vaadin.sticky.model.StickyException;
 import com.meschbach.xp.vaadin.sticky.model.StickyNote;
 import com.meschbach.xp.vaadin.sticky.model.StickyQuotaException;
 import com.meschbach.xp.vaadin.sticky.model.StickyUser;
+import com.vaadin.event.ShortcutAction.KeyCode;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.Window.CloseEvent;
 import java.io.Serializable;
 
 /**
@@ -35,6 +37,7 @@ public class StickyNotesController implements Button.ClickListener, Serializable
     public void init() {
 	addStickyButton = new Button("Add Note +");
 	addStickyButton.addListener(this);
+	addStickyButton.setClickShortcut(KeyCode.A);
 	window.addComponent(addStickyButton);
     }
 
@@ -44,11 +47,21 @@ public class StickyNotesController implements Button.ClickListener, Serializable
 
     public void buttonClick(ClickEvent event) {
 	try {
-	    StickyNote note = model.createNote();
+	    final StickyNote note = model.createNote();
 	    note.setMessage("Stick #" + stickyNumber + ":Click to change the message");
 	    stickyNumber++;
 
 	    Window w = new Window();
+	    w.addListener(new Window.CloseListener() {
+
+		public void windowClose(CloseEvent e) {
+		    try {
+			model.removeNote(note);
+		    } catch (StickyException se) {
+			throw new RuntimeException(se);
+		    }
+		}
+	    });
 	    window.addWindow(w);
 
 	    StickyNoteController snc = new StickyNoteController(note, w);

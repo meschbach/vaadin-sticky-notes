@@ -10,12 +10,13 @@ import com.meschbach.xp.vaadin.sticky.model.StickyApplication;
 import com.meschbach.xp.vaadin.sticky.model.StickyAuthorizationException;
 import com.meschbach.xp.vaadin.sticky.model.StickyException;
 import com.meschbach.xp.vaadin.sticky.model.StickyUser;
+import java.io.Serializable;
 
 /**
  *
  * @author "Mark Eschbach" (meschbach@gmail.com)
  */
-public class MemoryStickyApplication implements StickyApplication {
+public class MemoryStickyApplication implements StickyApplication, Serializable {
 
     MemoryStickyUser msu;
 
