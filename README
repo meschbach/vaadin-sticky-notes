@@ -1,0 +1,4 @@
+This is a simple sticky notes example application written as an expiriment wtih the Vaadin WebUI framework.
+
+NOTE: In the current state do not deploy this application publicly because someone may exauhst your Web Container's heap.
+
