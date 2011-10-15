@@ -18,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author "Mark Eschbach" (meschbach@gmail.com)
  */
 public class App extends Application {
-
     @Autowired(required = true)
     StickyApplication application;
 

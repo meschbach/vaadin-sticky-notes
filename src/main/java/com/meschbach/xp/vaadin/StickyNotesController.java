@@ -35,10 +35,41 @@ public class StickyNotesController implements Button.ClickListener, Serializable
     }
 
     public void init() {
+	/*
+	 * Initialize our base controls
+	 */
 	addStickyButton = new Button("Add Note +");
 	addStickyButton.addListener(this);
 	addStickyButton.setClickShortcut(KeyCode.A);
 	window.addComponent(addStickyButton);
+	/*
+	 * Initialize our sticky notes
+	 */
+	try {
+	    for(StickyNote note : model.getNotes()){
+		displaySticky(note);
+	    }
+	}catch(Exception e){
+	    throw new RuntimeException(e);
+	}
+    }
+
+    public void displaySticky(final StickyNote note) {
+	Window w = new Window();
+	w.addListener(new Window.CloseListener() {
+
+	    public void windowClose(CloseEvent e) {
+		try {
+		    model.removeNote(note);
+		} catch (StickyException se) {
+		    throw new RuntimeException(se);
+		}
+	    }
+	});
+	window.addWindow(w);
+
+	StickyNoteController snc = new StickyNoteController(note, w);
+	snc.init();
     }
 
     public void release() {
@@ -47,25 +78,11 @@ public class StickyNotesController implements Button.ClickListener, Serializable
 
     public void buttonClick(ClickEvent event) {
 	try {
-	    final StickyNote note = model.createNote();
+	    StickyNote note = model.createNote();
 	    note.setMessage("Stick #" + stickyNumber + ":Click to change the message");
 	    stickyNumber++;
 
-	    Window w = new Window();
-	    w.addListener(new Window.CloseListener() {
-
-		public void windowClose(CloseEvent e) {
-		    try {
-			model.removeNote(note);
-		    } catch (StickyException se) {
-			throw new RuntimeException(se);
-		    }
-		}
-	    });
-	    window.addWindow(w);
-
-	    StickyNoteController snc = new StickyNoteController(note, w);
-	    snc.init();
+	    displaySticky(note);
 	} catch (StickyQuotaException se) {
 	    window.showNotification("Quota",
 		    "Your sticky limit has been reached.  I will eventually add functionality to discount removed stickies!  Click on this message to get ride of it.",
