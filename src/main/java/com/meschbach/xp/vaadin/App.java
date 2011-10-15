@@ -6,6 +6,9 @@
  */
 package com.meschbach.xp.vaadin;
 
+import com.meschbach.xp.vaadin.sticky.model.StickyApplication;
+import com.meschbach.xp.vaadin.sticky.model.StickyUser;
+import com.meschbach.xp.vaadin.sticky.model.memory.MemoryStickyApplication;
 import com.vaadin.Application;
 import com.vaadin.ui.Window;
 
@@ -17,6 +20,7 @@ public class App extends Application {
 
     @Override
     public void init() {
+	final StickyApplication application = new MemoryStickyApplication();
 	/*
 	 * Configure our root window
 	 */
@@ -25,13 +29,16 @@ public class App extends Application {
 	/*
 	 * Assemble the authentication controller
 	 */
-	final AuthenticationWorkflowController ac = new AuthenticationWorkflowController();
+	final AuthenticationWorkflowController ac = new AuthenticationWorkflowController(application);
 	ac.setViewRoot(mainWindow);
 	ac.setDelegate(new AuthenticationWorkflowController.Delegate() {
 
-	    public void authenticated() {
+	    public void authenticated(StickyUser su) {
+		/*
+		 * Spawn the next phase of the application
+		 */
 		ac.release();
-		StickyNotesController snc = new StickyNotesController(new StickyNotesModel(), mainWindow);
+		StickyNotesController snc = new StickyNotesController(su, mainWindow);
 		snc.init();
 	    }
 

@@ -4,26 +4,25 @@
  * $HeadURL$
  * $Id$
  */
-package com.meschbach.xp.vaadin;
+package com.meschbach.xp.vaadin.sticky.model.memory;
 
+import com.meschbach.xp.vaadin.sticky.model.StickyNote;
 import java.io.Serializable;
 
 /**
  *
  * @author "Mark Eschbach" (meschbach@gmail.com)
  */
-public class StickyNote implements Serializable {
+public class MemoryStickyNote implements Serializable, StickyNote {
 
-    String title;
     String message;
 
-    public StickyNote(String title, String message) {
-	this.title = title;
+    public MemoryStickyNote( String message) {
 	this.message = message;
     }
 
-    public StickyNote() {
-	this("", "");
+    public MemoryStickyNote() {
+	this("");
     }
 
     public String getMessage() {
@@ -32,13 +31,5 @@ public class StickyNote implements Serializable {
 
     public void setMessage(String message) {
 	this.message = message;
-    }
-
-    public String getTitle() {
-	return title;
-    }
-
-    public void setTitle(String title) {
-	this.title = title;
     }
 }

@@ -6,6 +6,7 @@
  */
 package com.meschbach.xp.vaadin;
 
+import com.meschbach.xp.vaadin.sticky.model.StickyNote;
 import com.vaadin.data.Property;
 import com.vaadin.data.util.MethodProperty;
 import com.vaadin.event.FieldEvents.BlurEvent;
@@ -15,12 +16,13 @@ import com.vaadin.event.MouseEvents.ClickListener;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.Window;
+import java.io.Serializable;
 
 /**
  *
  * @author "Mark Eschbach" (meschbach@gmail.com)
  */
-public class StickyNoteController {
+public class StickyNoteController implements Serializable {
 
     StickyNote note;
     Window container;

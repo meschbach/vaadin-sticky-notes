@@ -13,12 +13,13 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
+import java.io.Serializable;
 
 /**
  *
  * @author "Mark Eschbach" (meschbach@gmail.com)
  */
-public class AuthenticationViewController  implements Button.ClickListener {
+public class AuthenticationViewController  implements Button.ClickListener, Serializable {
 
     AuthenticationListener delegate;
     TextField userName;
