@@ -16,7 +16,7 @@
         <init-param>
             <description>Vaadin Framework's Application Class</description>
             <param-name>application</param-name>
-            <param-value>com.meschbach.xp.vaadin.sticky.spring.SpringApp</param-value>
+            <param-value>com.meschbach.xp.vaadin.App</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>

@@ -11,11 +11,13 @@ import com.meschbach.xp.vaadin.sticky.model.StickyAuthorizationException;
 import com.meschbach.xp.vaadin.sticky.model.StickyException;
 import com.meschbach.xp.vaadin.sticky.model.StickyUser;
 import java.io.Serializable;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author "Mark Eschbach" (meschbach@gmail.com)
  */
+@Component
 public class MemoryStickyApplication implements StickyApplication, Serializable {
 
     MemoryStickyUser msu;

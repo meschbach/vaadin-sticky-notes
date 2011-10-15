@@ -11,6 +11,7 @@ import com.meschbach.xp.vaadin.sticky.model.StickyUser;
 import com.meschbach.xp.vaadin.sticky.model.memory.MemoryStickyApplication;
 import com.vaadin.Application;
 import com.vaadin.ui.Window;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -18,9 +19,15 @@ import com.vaadin.ui.Window;
  */
 public class App extends Application {
 
+    @Autowired(required = true)
+    StickyApplication application;
+
+    public App() {
+	application = new MemoryStickyApplication();
+    }
+
     @Override
     public void init() {
-	final StickyApplication application = new MemoryStickyApplication();
 	/*
 	 * Configure our root window
 	 */

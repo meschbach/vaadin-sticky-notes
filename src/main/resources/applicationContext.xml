@@ -11,5 +11,5 @@
 ">
     <context:component-scan base-package="com.meschbach.xp.vaadin.sticky.spring" />
 
-    <bean id="o" class="com.meschbach.xp.vaadin.sticky.spring.Obj"/>
+    <bean id="applicationDataStore" class="com.meschbach.xp.vaadin.sticky.model.memory.MemoryStickyApplication"/>
 </beans>
