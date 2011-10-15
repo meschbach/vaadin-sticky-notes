@@ -16,13 +16,19 @@ import java.io.Serializable;
 public class MemoryStickyNote implements Serializable, StickyNote {
 
     String message;
+    int id;
 
-    public MemoryStickyNote( String message) {
+    public MemoryStickyNote(String message, int id) {
 	this.message = message;
+	this.id = id;
+    }
+
+    public MemoryStickyNote(int id) {
+	this.id = id;
     }
 
     public MemoryStickyNote() {
-	this("");
+	this("", -1);
     }
 
     public String getMessage() {
@@ -31,5 +37,17 @@ public class MemoryStickyNote implements Serializable, StickyNote {
 
     public void setMessage(String message) {
 	this.message = message;
+    }
+
+    @Override
+    public boolean equals(Object value) {
+	boolean isEqual;
+	if (value instanceof MemoryStickyNote) {
+	    MemoryStickyNote msn = (MemoryStickyNote) value;
+	    isEqual = id == msn.id;
+	} else {
+	    isEqual = false;
+	}
+	return isEqual;
     }
 }

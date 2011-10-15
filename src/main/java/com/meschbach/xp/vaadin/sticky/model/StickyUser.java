@@ -24,4 +24,6 @@ public interface StickyUser {
      * @throws StickyException if a problem occurs creating notes
      */
     public StickyNote createNote() throws StickyException, StickyQuotaException;
+
+    public void removeNote(StickyNote note) throws StickyException;
 }

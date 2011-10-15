@@ -10,15 +10,17 @@ import com.meschbach.xp.vaadin.sticky.model.StickyException;
 import com.meschbach.xp.vaadin.sticky.model.StickyNote;
 import com.meschbach.xp.vaadin.sticky.model.StickyQuotaException;
 import com.meschbach.xp.vaadin.sticky.model.StickyUser;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  *
  * @author "Mark Eschbach" (meschbach@gmail.com)
  */
-public class MemoryStickyUser implements StickyUser {
+public class MemoryStickyUser implements StickyUser, Serializable {
 
     List<StickyNote> notes;
     String name;
@@ -46,5 +48,9 @@ public class MemoryStickyUser implements StickyUser {
 
     public String getUserName() throws StickyException {
 	return name;
+    }
+
+    public void removeNote(StickyNote note) throws StickyException {
+	if(!notes.remove(note)) throw new NoSuchElementException();
     }
 }
