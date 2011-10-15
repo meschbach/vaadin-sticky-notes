@@ -17,10 +17,10 @@ import com.vaadin.ui.Window;
  * @author "Mark Eschbach" (meschbach@gmail.com)
  */
 public class App extends Application {
+    StickyApplication application = new MemoryStickyApplication();
 
     @Override
     public void init() {
-	final StickyApplication application = new MemoryStickyApplication();
 	/*
 	 * Configure our root window
 	 */
