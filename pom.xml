@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.meschbach.xp.vaadin</groupId>
-    <artifactId>sitcky-notes</artifactId>
+    <artifactId>sticky-notes</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
