@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.meschbach.xp.vaadin.sticky.model.memory;
 
 import static org.junit.Assert.assertTrue;
@@ -67,4 +68,23 @@ public class MemoryStickyUserTest {
 		assertFalse ("Just to test that JUnit is still working properly",stickyNote != null);
 	}
 
+=======
+/*
+ */
+package com.meschbach.xp.vaadin.sticky.model.memory;
+
+import org.testng.annotations.Test;
+
+
+/**
+ *
+ * @author "Mark Eschbach" (meschbach@gmail.com)
+ */
+public class MemoryStickyUserTest {
+
+    @Test
+    public void iamATest(){
+	
+    }
+>>>>>>> 484450ac4bbbb519dc44ca6b210a5d3b266c2cab
 }
