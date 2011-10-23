@@ -28,15 +28,14 @@
 	</dependency>
 
 	<dependency>
-<<<<<<< HEAD
+
 	    <groupId>junit</groupId>
 	    <artifactId>junit</artifactId>
 	    <version>4.8.1</version>
-=======
+
 	    <groupId>org.testng</groupId>
 	    <artifactId>testng</artifactId>
 	    <version>5.14.6</version>
->>>>>>> 484450ac4bbbb519dc44ca6b210a5d3b266c2cab
 	    <scope>test</scope>
 	</dependency>
 
