@@ -34,7 +34,7 @@ public class MemoryStickyUser implements StickyUser, Serializable {
 
 
     public synchronized StickyNote createNote() throws StickyException {
-	if(notes.size() + 1 >= quota){
+	if(notes.size() >= quota){
 	    throw new StickyQuotaException();
 	}
 	MemoryStickyNote msn = new MemoryStickyNote();

@@ -1,9 +1,7 @@
 package com.meschbach.xp.vaadin.sticky.model.memory;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
 
-import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +10,6 @@ import com.meschbach.xp.vaadin.sticky.model.StickyException;
 import com.meschbach.xp.vaadin.sticky.model.StickyNote;
 import com.meschbach.xp.vaadin.sticky.model.StickyQuotaException;
 import com.meschbach.xp.vaadin.sticky.model.StickyUser;
-import com.meschbach.xp.vaadin.sticky.model.memory.MemoryStickyUser;
 
 public class MemoryStickyUserForQuotaOfOneTest {
 	
