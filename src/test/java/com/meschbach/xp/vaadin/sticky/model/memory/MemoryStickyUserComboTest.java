@@ -1,12 +1,12 @@
 package com.meschbach.xp.vaadin.sticky.model.memory;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import org.testng.annotations.Test;
+import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.assertFalse;
+import org.testng.annotations.BeforeClass;
 
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
 
 import com.meschbach.xp.vaadin.sticky.model.StickyException;
 import com.meschbach.xp.vaadin.sticky.model.StickyNote;
@@ -20,7 +20,7 @@ public class MemoryStickyUserComboTest {
 	StickyNote stickyNote;
 	String testString;	
 	
-	@Before
+	@BeforeClass
 	public void setup(){
 		stickyUser = new MemoryStickyUser("TestUserName",2);
 		stickyNote = null;
@@ -53,17 +53,17 @@ public class MemoryStickyUserComboTest {
 		
 		StickyNote result = ( stickyNotes ).get(0);
 		
-		assertTrue ("FAIL! For some reason the returned list of sticky notes is null.",stickyNotes != null);
+		assertTrue (stickyNotes != null, "FAIL! For some reason the returned list of sticky notes is null.");
 		
-		assertTrue ("FAIL! For some other reason the size of the returned list of sticky notes is not one! ",stickyNotes.size()==1);
+		assertTrue (stickyNotes.size()==1,"FAIL! For some other reason the size of the returned list of sticky notes is not one! ");
 		
-		assertTrue ("FAIL! For some reason we could not retrieve the result.", result.getMessage().equals(testString)    );
+		assertTrue (result.getMessage().equals(testString),"FAIL! For some reason we could not retrieve the result." );
 		
 		
 	}
 	
 	@Test
 	public void testFoo(){
-		assertFalse ("Just to test that JUnit is still working properly",stickyNote != null);
+		assertFalse (stickyNote == null, "Just to test that TestNG is still working properly");
 	}
 }

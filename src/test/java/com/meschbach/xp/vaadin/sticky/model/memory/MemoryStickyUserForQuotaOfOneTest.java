@@ -1,10 +1,9 @@
 package com.meschbach.xp.vaadin.sticky.model.memory;
 
-import static org.junit.Assert.assertTrue;
 
-
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import static org.testng.Assert.assertTrue;
 
 import com.meschbach.xp.vaadin.sticky.model.StickyException;
 import com.meschbach.xp.vaadin.sticky.model.StickyNote;
@@ -18,7 +17,7 @@ public class MemoryStickyUserForQuotaOfOneTest {
 	String testString;	
 		
 	
-	@Before
+	@BeforeClass
 	public void setup(){
 		stickyUser = null;
 	}
@@ -40,7 +39,8 @@ public class MemoryStickyUserForQuotaOfOneTest {
 			e.printStackTrace();
 		}
 		
-		assertTrue ("", stickyUser!= null);
+		assertTrue (stickyUser!= null, "FAIL!  The sticky User is null, but it should not be.");
+		assertTrue (stickyNote!= null, "FAIL!  The sticky NOTE is null, but it should not be.");
 	}
 	
 	
